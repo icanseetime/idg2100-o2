@@ -3,6 +3,6 @@
     width: 312px;
 }
 
-.BigSwitch > *:first-child {
+.BigSwitch>*:first-child {
     margin-bottom: 1em;
 }

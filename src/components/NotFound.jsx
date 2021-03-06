@@ -1,7 +1,7 @@
 //components/NotFound.jsx
 import { Link } from "react-router-dom";
-  
-  const NotFound = () => {
+
+const NotFound = () => {
     return (
         <div className="NotFound">
             <p>

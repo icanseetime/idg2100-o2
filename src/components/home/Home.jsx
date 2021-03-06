@@ -14,20 +14,20 @@ class Home extends Component {
 
         return (
             <div className="Home">
-                <StatusButton available={available} onChange={this.updateUserStatus}/>
-                <StatusImage available={available} onCampus={onCampus}/>
+                <StatusButton available={available} onChange={this.updateUserStatus} />
+                <StatusImage available={available} onCampus={onCampus} />
                 <BigSwitch config={config} checked={onCampus} onChange={this.updateUserPlace} />
             </div>
         );
     }
 
     updateUserPlace = (onCampus) => {
-        console.log('updateUserPlace: ', onCampus );
+        console.log('updateUserPlace: ', onCampus);
         this.props.onChangePlace(onCampus);
     }
 
     updateUserStatus = (available) => {
-        console.log('updateUserStatus: ', available );
+        console.log('updateUserStatus: ', available);
         this.props.onChangeStatus(available);
     }
 }

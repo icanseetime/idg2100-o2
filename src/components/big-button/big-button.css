@@ -19,7 +19,7 @@
     box-shadow: inset 0px 0px 5px 3px var(--color-bg-secondary-light);
 }
 
-.BigButton > p {
+.BigButton>p {
     text-transform: uppercase;
 }
 

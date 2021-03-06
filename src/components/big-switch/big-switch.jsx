@@ -12,7 +12,7 @@ class BigSwitch extends Component {
         this.updatEnabled(!newValue);
     }
 
-    updatEnabled(newValue){
+    updatEnabled(newValue) {
         this.props.onChange(newValue);
     }
 
@@ -21,8 +21,8 @@ class BigSwitch extends Component {
 
         return (
             <div className="BigSwitch">
-                <BigButton text={textWhenChecked} enabled={checked} onClick={this.handleOnClickFirstButton}/>
-                <BigButton text={textWhenUnchecked} enabled={!checked} onClick={this.handleOnClickSecondButton}/>
+                <BigButton text={textWhenChecked} enabled={checked} onClick={this.handleOnClickFirstButton} />
+                <BigButton text={textWhenUnchecked} enabled={!checked} onClick={this.handleOnClickSecondButton} />
             </div>
         );
     }
@@ -31,7 +31,7 @@ class BigSwitch extends Component {
 BigSwitch.defaultProps = {
     config: { textWhenChecked: 'on-campus', textWhenUnchecked: 'Home office' },
     checked: true,
-    onChange: ()=>{console.log('<BigSwitch> onChange')}
+    onChange: () => { console.log('<BigSwitch> onChange') }
 };
 
 export default BigSwitch;
