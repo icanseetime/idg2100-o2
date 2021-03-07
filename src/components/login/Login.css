@@ -1,0 +1,16 @@
+.Login {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.Login form label {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+input {
+    margin-bottom: 1em;
+}

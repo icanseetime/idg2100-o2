@@ -2,14 +2,17 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 import './App.css';
 import USERS from './users';
 
+import Header from './components/header/header'
 import Home from './components/home/Home';
+import Login from './components/login/Login'
+import Register from './components/register/Register'
+import ForgotPassword from './components/forgot-password/ForgotPassword'
 import UserList from './components/user-list/user-list';
 import NotFound from './components/NotFound';
 
@@ -28,22 +31,20 @@ class App extends Component {
       <div className="App">
         <Router>
           <div>
-            <header className="App-header">
-              <nav>
-                <ul>
-                  <li>
-                    <Link to="/">Home</Link>
-                  </li>
-                  <li>
-                    <Link to="/dashboard">Dashboard</Link>
-                  </li>
-                </ul>
-              </nav>
-            </header>
+            <Header />
             <main>
               <Switch>
                 <Route exact path="/dashboard">
                   <UserList users={this.state.users} />
+                </Route>
+                <Route exact path="/login">
+                  <Login />
+                </Route>
+                <Route exact path="/register">
+                  <Register />
+                </Route>
+                <Route exact path="/forgot-password">
+                  <ForgotPassword />
                 </Route>
                 <Route exact path="/">
                   <Home user={this.state.myUser} onChangePlace={this.updateUserPlace} onChangeStatus={this.updateUserStatus} />
