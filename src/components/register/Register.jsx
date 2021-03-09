@@ -24,6 +24,20 @@ class Register extends Component {
                         Password
                         <input type="password" name="password" />
                     </label>
+                    <label>
+                        Confirm password
+                        <input type="password" name="confirmPass" />
+                    </label>
+                    <label>
+                        Role
+                        <select name="role" id="role">
+                            <option disabled selected value="">--Choose a role--</option>
+                            <option value="student">Student</option>
+                            <option value="teacher">Teacher</option>
+                            {/* <option value="guest">Guest</option> */}
+                            {/* <option value="admin">Administrator</option> */}
+                        </select>
+                    </label>
                     <input type="submit" value="Register" />
                 </form>
                 <div>
