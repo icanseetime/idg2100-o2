@@ -16,6 +16,12 @@ import ForgotPassword from './components/forgot-password/ForgotPassword'
 import UserList from './components/user-list/user-list';
 import NotFound from './components/NotFound';
 
+import About from './components/about/About';
+import PrivateRoute from './routes/PrivateRoute';
+// import Login from './components/login/Login';
+
+import FormTest from './components/form-controls/formTest'
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -34,6 +40,9 @@ class App extends Component {
             <Header />
             <main>
               <Switch>
+                <Route exact path="/test">
+                  <FormTest />
+                </Route>
                 <Route exact path="/dashboard">
                   <UserList users={this.state.users} />
                 </Route>
@@ -46,8 +55,15 @@ class App extends Component {
                 <Route exact path="/forgot-password">
                   <ForgotPassword />
                 </Route>
-                <Route exact path="/">
+                {/* <Route exact path="/"> */}
+                <PrivateRoute exact path="/user">
                   <Home user={this.state.myUser} onChangePlace={this.updateUserPlace} onChangeStatus={this.updateUserStatus} />
+                </PrivateRoute>
+                <Route path="/login">
+                  <Login />
+                </Route>
+                <Route path="/">
+                  <About />
                 </Route>
                 <Route path="*">
                   <NotFound />
@@ -56,7 +72,7 @@ class App extends Component {
             </main>
           </div>
         </Router>
-      </div>
+      </div >
     );
   }
 

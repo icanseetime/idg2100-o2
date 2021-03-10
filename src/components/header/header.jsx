@@ -12,9 +12,12 @@ class Header extends Component {
                         <li>
                             <Link to="/">Home</Link>
                         </li>
-                        {/* <li>
+                        <li>
+                            <Link to="/user">User home</Link>
+                        </li>
+                        <li>
                             <Link to="/dashboard">Dashboard</Link>
-                        </li> */}
+                        </li>
                         <li>
                             <Link to="/login">Log in</Link>
                         </li>
