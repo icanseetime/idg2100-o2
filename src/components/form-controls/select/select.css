@@ -1,0 +1,10 @@
+.Select {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-size: .8em;
+}
+
+.Select select {
+    margin-bottom: 1em;
+}

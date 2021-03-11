@@ -1,0 +1,21 @@
+button {
+    padding: 10px 20px;
+    background-color: var(--color-bg-secondary);
+    color: white;
+    border: 0;
+    text-transform: uppercase;
+}
+
+button:hover {
+    cursor: pointer;
+    transform: translate(1px, 1px);
+}
+
+button:active {
+    box-shadow: inset 0px 0px 5px 3px var(--color-bg-secondary-light);
+}
+
+button:disabled {
+    background-color: #3AAFB940;
+    color: rgb(129, 129, 129);
+}
