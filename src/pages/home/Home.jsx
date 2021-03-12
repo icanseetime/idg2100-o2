@@ -1,8 +1,8 @@
 import './Home.css';
 import React, { Component } from 'react';
-import BigSwitch from '../big-switch/big-switch';
-import StatusButton from '../status-button/status-button';
-import StatusImage from '../status-image/status-image';
+import BigSwitch from '../../components/big-switch/big-switch';
+import StatusButton from '../../components/status-button/status-button';
+import StatusImage from '../../components/status-image/status-image';
 
 const config = { textWhenChecked: 'on-campus', textWhenUnchecked: 'Home office' };
 

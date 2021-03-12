@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './RegisterForm.css'
+import './Form.css'
 
 // Components
 import FormInput from '../form-input/form-input'

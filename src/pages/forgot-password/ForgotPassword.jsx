@@ -2,17 +2,15 @@ import React, { Component } from 'react'
 import './ForgotPassword.css'
 import { Link } from 'react-router-dom'
 
+import FormInput from '../../components/form-controls/form-input/form-input'
+
 class ForgotPassword extends Component {
     render() {
         return (
             <div className="ForgotPassword">
                 <h2>Get new password</h2>
                 <form action="#">
-                    <label>
-                        E-mail
-                        <input type="email" name="email" />
-                    </label>
-                    <input type="submit" value="Send" />
+                    <FormInput type="email" name="email" title="E-mail" />
                 </form>
                 <div>
                     <p>

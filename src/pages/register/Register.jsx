@@ -2,16 +2,15 @@ import React, { Component } from 'react'
 import './Register.css'
 import { Link } from 'react-router-dom'
 
-// import RegisterForm from '../form-controls/register-form/RegisterForm'
-import Form from '../../components/form-controls/register-form/Form'
-import register from './register.json'
+import Form from '../../components/form-controls/form/Form'
+import formValues from './formValues.json'
 
 class Register extends Component {
     render() {
         return (
             <div className="Register">
                 <h2>Register new user</h2>
-                <Form method="POST" action="#" inputs={register} />
+                <Form method="POST" action="#" inputs={formValues} />
                 <div>
                     <p>
                         Already have an account? <Link to="/login">Log in</Link>
@@ -21,4 +20,4 @@ class Register extends Component {
     }
 }
 
-export default Register;
+export default Register

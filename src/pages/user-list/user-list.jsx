@@ -1,4 +1,4 @@
-import UserPreview from '../user-preview/user-preview';
+import UserPreview from '../../components/user-preview/user-preview';
 import './user-list.css';
 
 function UserList({ users }) {
