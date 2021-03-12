@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
-import FormInput from './form-input/form-input'
-import SubmitButton from './submit-button/submit-button'
-import Select from './select/select'
-import './formTest.css'
+import FormInput from '../form-input/form-input'
+import SubmitButton from '../submit-button/submit-button'
+import Select from '../select/select'
+import './RegisterForm.css'
 
 // Regexp patterns
-import { pattern } from '../../utils/pattern'
+import { pattern } from '../../../utils/pattern'
 
-class formTest extends Component {
+class RegisterForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -65,15 +65,14 @@ class formTest extends Component {
     render() {
         return (
             <div className="Form">
-                <h2>Form Test</h2>
+                {/* <h2>Form Test</h2> */}
                 <form action="#" method="POST">
                     <FormInput type="text" title="First name" name="firstName" pattern={pattern.name} onValidate={this.validate} />
                     <FormInput type="text" title="Last name" name="lastName" pattern={pattern.name} onValidate={this.validate} />
                     <FormInput type="email" title="Email" name="email" pattern={pattern.email} onValidate={this.validate} />
-                    <Select title="Role" name="role" options={['Student', 'Teacher']} onValidate={this.validate} />
                     <FormInput type="password" title="Password" name="password" pattern={pattern.password} onPasswordChange={this.setPasswordMatch} onValidate={this.validate} />
                     <FormInput type="password" title="Confirm password" name="confirmPassword" pattern={`^${this.state.passwordMatch}$`} onValidate={this.validate} />
-
+                    <Select title="Role" name="role" options={['Student', 'Teacher']} onValidate={this.validate} />
                     <SubmitButton name="register" disabled={this.state.formIncomplete} />
                 </form>
             </div>
@@ -82,4 +81,4 @@ class formTest extends Component {
     }
 }
 
-export default formTest
+export default RegisterForm

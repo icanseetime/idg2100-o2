@@ -20,7 +20,7 @@ import About from './components/about/About';
 import PrivateRoute from './routes/PrivateRoute';
 // import Login from './components/login/Login';
 
-import FormTest from './components/form-controls/formTest'
+import RegisterForm from './components/form-controls/register-form/RegisterForm'
 
 class App extends Component {
   constructor(props) {
@@ -41,7 +41,7 @@ class App extends Component {
             <main>
               <Switch>
                 <Route exact path="/test">
-                  <FormTest />
+                  <RegisterForm />
                 </Route>
                 <Route exact path="/dashboard">
                   <UserList users={this.state.users} />
