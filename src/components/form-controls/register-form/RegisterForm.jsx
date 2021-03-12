@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
+import './RegisterForm.css'
+
+// Components
 import FormInput from '../form-input/form-input'
 import SubmitButton from '../submit-button/submit-button'
 import Select from '../select/select'
-import './RegisterForm.css'
+import MatchingPasswords from '../matching-passwords/MatchingPasswords'
 
 // Regexp patterns
 import { pattern } from '../../../utils/pattern'
@@ -16,20 +19,12 @@ class RegisterForm extends Component {
                 lastName: false,
                 email: false,
                 role: false,
-                password: false,
-                confirmPassword: false
+                matchingPasswords: false
             },
             formIncomplete: true,
-            passwordMatch: pattern.password
         }
-
-        this.setPasswordMatch = this.setPasswordMatch.bind(this)
         this.validate = this.validate.bind(this)
         this.checkFormCompletion = this.checkFormCompletion.bind(this)
-    }
-
-    setPasswordMatch(newPattern) {
-        this.setState({ passwordMatch: newPattern })
     }
 
     validate(name, value) {
@@ -59,24 +54,26 @@ class RegisterForm extends Component {
             this.setState({
                 formIncomplete: false
             })
+        } else {
+            this.setState({
+                formIncomplete: true
+            })
         }
     }
 
     render() {
         return (
+            // TODO: remove div? 
             <div className="Form">
-                {/* <h2>Form Test</h2> */}
                 <form action="#" method="POST">
                     <FormInput type="text" title="First name" name="firstName" pattern={pattern.name} onValidate={this.validate} />
                     <FormInput type="text" title="Last name" name="lastName" pattern={pattern.name} onValidate={this.validate} />
-                    <FormInput type="email" title="Email" name="email" pattern={pattern.email} onValidate={this.validate} />
-                    <FormInput type="password" title="Password" name="password" pattern={pattern.password} onPasswordChange={this.setPasswordMatch} onValidate={this.validate} />
-                    <FormInput type="password" title="Confirm password" name="confirmPassword" pattern={`^${this.state.passwordMatch}$`} onValidate={this.validate} />
+                    <FormInput type="email" title="E-mail" name="email" pattern={pattern.email} onValidate={this.validate} />
+                    <MatchingPasswords onValidate={this.validate} pattern={pattern.password} />
                     <Select title="Role" name="role" options={['Student', 'Teacher']} onValidate={this.validate} />
                     <SubmitButton name="register" disabled={this.state.formIncomplete} />
                 </form>
             </div>
-
         )
     }
 }
