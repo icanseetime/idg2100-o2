@@ -1,0 +1,36 @@
+{
+    "FormInput": {
+        "firstName": {
+            "type": "text",
+            "title": "First name",
+            "pattern": "name"
+        },
+        "lastName": {
+            "type": "text",
+            "title": "Last name",
+            "pattern": "name"
+        },
+        "email": {
+            "type": "email",
+            "title": "E-mail",
+            "pattern": "email"
+        }
+    },
+    "MatchingPasswords": {
+        "matchingPasswords": {
+            "pattern": "password"
+        }
+    },
+    "Select": {
+        "role": {
+            "title": "Role",
+            "options": [
+                "Student",
+                "Teacher"
+            ]
+        }
+    },
+    "SubmitButton": {
+        "name": "Register"
+    }
+}
