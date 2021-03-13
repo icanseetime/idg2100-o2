@@ -115,15 +115,14 @@ class Form extends Component {
 
     handleSubmitForm(e) {
         e.preventDefault()
-        let formValues = this.state.formValues
+        let queryParams = this.state.formValues
         if (this.props.method === 'GET') {
             axios.get(this.props.action, {
                 params: {
-                    formValues
+                    ...queryParams
                 }
             })
                 .then(res => {
-                    console.log(res.data)
                     if (res.data.successMessage) {
                         this.setState({
                             successMessage: res.data.successMessage
@@ -136,7 +135,7 @@ class Form extends Component {
                 })
                 .catch(err => console.log(err))
         } else if (this.props.method === 'POST') {
-            axios.post(this.props.action, formValues)
+            axios.post(this.props.action, this.state.formValues)
                 .then(res => {
                     if (res.data.redirect) {
                         this.setState({

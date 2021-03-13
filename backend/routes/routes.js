@@ -32,13 +32,15 @@ const createUser = async (req, res) => {
 
 // GET: Check if user exists
 const findUser = async (req, res) => {
-    console.log(req.query.formValues)
+    console.log(req.body)
+    console.log(req.query)
+    console.log(req.params)
     try {
-        let user = await User.find({ email: req.query.formValues.email })
+        let user = await User.find({ email: req.query.email })
         if (user.length) {
-            res.status(200).json({ successMessage: `An e-mail has been sent to ${req.query.formValues.email}. Please check your e-mail to reset your password.` })
+            res.status(200).json({ successMessage: `An e-mail has been sent to ${req.query.email}. Please check your e-mail to reset your password.` })
         } else {
-            res.status(400).json({ errorMessage: `We couldn't fint a user with the e-mail address ${req.query.formValues.email}. Please try again.` })
+            res.status(400).json({ errorMessage: `We couldn't fint a user with the e-mail address ${req.query.email}. Please try again.` })
         }
     } catch (err) {
         res.status(500).json(err)
