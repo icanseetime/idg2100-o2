@@ -1,15 +1,14 @@
-//api/user
+//api/users
 const express = require('express')
 const router = express.Router()
-
-// DB schema
-const User = require('../models/User')
+const routes = require('./routes')
 
 // GET
-// Find customer view
+// Find users
 router.get('/', (req, res) => {
-    res.status(200).render('customers/index', {
-        searchOptions: '',
-        customers: []
-    })
+    res.send('USERS :)')
 })
+
+router.post('/new', routes.createUser)
+
+module.exports = router
