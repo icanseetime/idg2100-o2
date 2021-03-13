@@ -98,9 +98,9 @@ class Form extends Component {
 
     render() {
         return (
-            <form className="Form" action={this.props.action} method={this.props.method}>
+            <form className="Form">
                 {this.formContent}
-                <SubmitButton name={this.props.inputs.SubmitButton.name} disabled={this.state.formIncomplete} />
+                <SubmitButton name={this.props.inputs.SubmitButton.name} disabled={this.state.formIncomplete} endpoint={this.props.action} method={this.props.method} />
             </form>
         )
     }
