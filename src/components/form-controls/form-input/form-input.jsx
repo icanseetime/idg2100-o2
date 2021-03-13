@@ -23,10 +23,10 @@ class FormInput extends Component {
         // Validation
         if (this.state.pattern.test(e.target.value)) {
             this.setState({ valid: true })
-            this.props.onValidate(e.target.name, true)
+            this.props.onValidate(e.target.name, e.target.value, true)
         } else {
             this.setState({ valid: false })
-            this.props.onValidate(e.target.name, false)
+            this.props.onValidate(e.target.name, e.target.value, false)
         }
 
         // Send password to form for match checking

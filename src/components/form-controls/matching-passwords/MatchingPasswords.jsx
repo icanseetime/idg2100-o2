@@ -38,7 +38,7 @@ class MatchingPasswords extends Component {
             this.setState({
                 validPassMatch: true
             })
-            this.props.onValidate('matchingPasswords', true)
+            this.props.onValidate('matchingPasswords', this.state.passwordMatch, true)
         } else {
             this.setState({
                 validPassMatch: false

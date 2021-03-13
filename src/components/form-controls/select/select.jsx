@@ -12,7 +12,7 @@ class Select extends Component {
     handleChange(e) {
         if (e.target.value) {
             this.setState({ valid: true })
-            this.props.onValidate(e.target.name, true)
+            this.props.onValidate(e.target.name, e.target.value, true)
         }
     }
 
