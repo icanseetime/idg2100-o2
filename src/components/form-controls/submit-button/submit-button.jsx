@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import './submit-button.css';
-
-
 
 class SubmitButton extends Component {
     constructor(props) {
@@ -13,20 +10,9 @@ class SubmitButton extends Component {
         }
     }
 
-    handleSubmit(e) {
-        e.preventDefault()
-        if (this.props.method == 'GET') {
-            axios.get(this.props.endpoint)
-                .then(data => console.log(data))
-        } else if (this.props.method == 'POST') {
-            axios.post(this.props.endpoint)
-                .then(data => console.log(data))
-        }
-    }
-
     render() {
         return (
-            <button type="submit" disabled={this.props.disabled || ''} onSubmit={this.handleSubmit}>
+            <button type="submit" disabled={this.props.disabled || ''}>
                 {this.props.name || 'Submit'}
             </button>
         )
