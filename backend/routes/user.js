@@ -6,9 +6,17 @@ const routes = require('./routes')
 // GET
 // Find users
 router.get('/', (req, res) => {
-    res.send('USERS :)')
+    res.send('USERS :)') // TODO: remove test
 })
 
+// "Get new password"
+router.get('/reset-password', routes.findUser)
+
+// POST
+// Create new user
 router.post('/new', routes.createUser)
+
+// Log in user
+router.post('/login', routes.validateUser)
 
 module.exports = router

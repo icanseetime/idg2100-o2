@@ -28,7 +28,7 @@ class Login extends Component {
         return (
             <div className="Login">
                 <h2>Log in</h2>
-                <Form method="GET" action="#" inputs={formValues} />
+                <Form method="POST" action="http://localhost:5000/api/users/login" inputs={formValues} />
 
                 {/* {!this.state.isAuth && <button onClick={this.handleLogIn}>Log In</button>}
                 {this.state.isAuth && <button onClick={this.handleLogOut}>Log Out</button>} */}

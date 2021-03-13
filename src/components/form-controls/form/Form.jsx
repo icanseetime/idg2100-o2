@@ -10,6 +10,7 @@ import MatchingPasswords from '../matching-passwords/MatchingPasswords'
 
 // Regexp patterns
 import { pattern } from '../../../utils/pattern'
+import { Redirect } from 'react-router'
 
 class Form extends Component {
     constructor(props) {
@@ -18,6 +19,7 @@ class Form extends Component {
             formValues: {},
             validInputs: {},
             formIncomplete: true,
+            redirect: false
         }
 
         this.validate = this.validate.bind(this)
@@ -113,19 +115,41 @@ class Form extends Component {
 
     handleSubmitForm(e) {
         e.preventDefault()
+        let formValues = this.state.formValues
         if (this.props.method === 'GET') {
-            axios.get(this.props.action)
-                .then(data => console.log(data))
-        } else if (this.props.method === 'POST') {
-            axios.post(this.props.action, {
-                firstName: this.state.formValues.firstName,
-                lastName: this.state.formValues.lastName,
-                email: this.state.formValues.email,
-                password: this.state.formValues.matchingPasswords,
-                role: this.state.formValues.role
+            axios.get(this.props.action, {
+                params: {
+                    formValues
+                }
             })
-                .then(data => console.log(data))
-                .catch()
+                .then(res => {
+                    console.log(res.data)
+                    if (res.data.successMessage) {
+                        this.setState({
+                            successMessage: res.data.successMessage
+                        })
+                    } else {
+                        this.setState({
+                            errorMessage: res.data.errorMessage
+                        })
+                    }
+                })
+                .catch(err => console.log(err))
+        } else if (this.props.method === 'POST') {
+            axios.post(this.props.action, formValues)
+                .then(res => {
+                    if (res.data.redirect) {
+                        this.setState({
+                            redirect: res.data.redirect
+                        })
+                    }
+                    if (res.data.errorMessage) {
+                        this.setState({
+                            errorMessage: res.data.errorMessage
+                        })
+                    }
+                })
+                .catch(err => console.log(err))
         }
     }
 
@@ -134,6 +158,10 @@ class Form extends Component {
             <form className="Form" onSubmit={this.handleSubmitForm}>
                 {this.formContent}
                 <SubmitButton name={this.props.inputs.SubmitButton.name} disabled={this.state.formIncomplete} />
+
+                {this.state.redirect && <Redirect to={this.state.redirect} />}
+                {this.state.errorMessage && <p>{this.state.errorMessage}</p>}
+                {this.state.successMessage && <p>{this.state.successMessage}</p>}
             </form>
         )
     }

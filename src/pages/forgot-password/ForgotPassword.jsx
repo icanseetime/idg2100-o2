@@ -10,7 +10,7 @@ class ForgotPassword extends Component {
         return (
             <div className="ForgotPassword">
                 <h2>Get new password</h2>
-                <Form method="POST" action="#" inputs={formValues} />
+                <Form method="GET" action="http://localhost:5000/api/users/reset-password" inputs={formValues} />
 
                 <div>
                     <p>
