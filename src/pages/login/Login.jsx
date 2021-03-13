@@ -4,7 +4,7 @@ import './Login.css'
 
 import Form from '../../components/form-controls/form/Form'
 import { isLoggedIn } from '../../utils/isAuth'
-import formValues from './login.json'
+import formValues from './formValues.json'
 
 //This component is implementing more than one functionality only for academic purposes.
 //If the app is connected to a Backend, the auth logic should be implemented in a different file (SOLID)

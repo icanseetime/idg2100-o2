@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './ForgotPassword.css'
 import { Link } from 'react-router-dom'
 
-import formValues from './forgotPassword.json'
+import formValues from './formValues.json'
 import Form from '../../components/form-controls/form/Form'
 
 class ForgotPassword extends Component {
@@ -21,4 +21,4 @@ class ForgotPassword extends Component {
     }
 }
 
-export default ForgotPassword;
+export default ForgotPassword
