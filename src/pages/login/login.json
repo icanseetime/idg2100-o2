@@ -1,0 +1,17 @@
+{
+    "FormInput": {
+        "email": {
+            "type": "email",
+            "title": "E-mail",
+            "pattern": "email"
+        },
+        "password": {
+            "type": "password",
+            "title": "Password",
+            "pattern": "password"
+        }
+    },
+    "SubmitButton": {
+        "name": "Log in"
+    }
+}
