@@ -5,7 +5,7 @@ if (process.env.NODE_ENV !== 'production') {
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
-// const path = require('path')
+const path = require('path') //TODO
 const cors = require('cors')
 
 // Routers
@@ -14,8 +14,8 @@ const userRouter = require('./routes/user')
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-app.use(cors())
-// app.use(express.static(path.join(__dirname, 'public')))
+app.use(cors()) //TODO
+app.use(express.static(path.join(__dirname, 'public'))) //TODO
 
 mongoose.connect(process.env.DATABASE_URL, {
     useNewUrlParser: true,
