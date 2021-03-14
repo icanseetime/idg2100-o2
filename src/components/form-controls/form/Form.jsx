@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import './Form.css'
 import axios from 'axios'
-import UserContext from '../../../utils/UserContext'
 
 // Components
 import FormInput from '../form-input/form-input'
@@ -140,9 +139,7 @@ class Form extends Component {
                 .then(res => {
                     if (res.data.localStorage) {
                         localStorage.setItem(res.data.localStorage, true)
-                        this.setState({
-                            validUser: true
-                        })
+                        this.props.toggleValidUser()
                     }
                     if (res.data.redirect) {
                         this.setState({
@@ -166,13 +163,6 @@ class Form extends Component {
                     {this.formContent}
                     <SubmitButton name={this.props.inputs.SubmitButton.name} disabled={this.state.formIncomplete} />
                 </form>
-                {this.state.validUser && <UserContext.Consumer>{values => {
-                    if (localStorage.getItem('userAuth')) {
-                        values.toggleValidUser()
-                    }
-                }
-                }
-                </UserContext.Consumer>}
                 {this.state.redirect && <Redirect to={this.state.redirect} />}
                 {this.state.errorMessage && <p style={{ fontSize: ".8rem", color: "var(--color-busy)" }}>{this.state.errorMessage}</p>}
                 {this.state.successMessage && <p style={{ fontSize: ".8rem", color: "var(--color-available)" }}>{this.state.successMessage}</p>}

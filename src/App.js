@@ -5,7 +5,6 @@ import {
   Route
 } from "react-router-dom"
 
-import UserContext from './utils/UserContext'
 import './App.css'
 import USERS from './users'
 
@@ -33,60 +32,57 @@ class App extends Component {
       myUser: { ...USERS[0] },
       users: [...USERS],
       validUser: false,
-      toggleValidUser: () => {
-        this.setState(({ validUser }) => ({
-          validUser: validUser ? false : true
-        }))
-      }
     }
+
+    this.toggleValidUser = this.toggleValidUser.bind(this)
   }
 
-  // componentDidUpdate() {
-  //   if (localStorage.getItem('userAuth')) {
-  //     this.setState({
-  //       validUser: true
-  //     })
-  //   }
-  // }
+  toggleValidUser() {
+    let valid = false
+    if (localStorage.getItem('userAuth')) {
+      valid = true
+    }
+    this.setState({
+      validUser: valid
+    })
+  }
 
   render() {
     return (
       <div className="App">
-        <UserContext.Provider value={this.state}>
-          <Router>
-            <div>
-              <Header />
-              <main>
-                <Switch>
-                  <Route exact path="/dashboard">
-                    <UserList users={this.state.users} />
-                  </Route>
-                  <PrivateRoute exact path="/user">
-                    <Home user={this.state.myUser} onChangePlace={this.updateUserPlace} onChangeStatus={this.updateUserStatus} />
-                  </PrivateRoute>
-                  <Route exact path="/login">
-                    <Login />
-                  </Route>
-                  <Route exact path="/register">
-                    <Register />
-                  </Route>
-                  <Route exact path="/forgot-password">
-                    <ForgotPassword />
-                  </Route>
-                  <PrivateRoute exact path="/logout">
-                    <Logout />
-                  </PrivateRoute>
-                  <Route path="/">
-                    <About />
-                  </Route>
-                  <Route path="*">
-                    <NotFound />
-                  </Route>
-                </Switch>
-              </main>
-            </div>
-          </Router>
-        </UserContext.Provider>
+        <Router>
+          <div>
+            <Header validUser={this.state.validUser} />
+            <main>
+              <Switch>
+                <Route exact path="/dashboard">
+                  <UserList users={this.state.users} />
+                </Route>
+                <PrivateRoute exact path="/user">
+                  <Home user={this.state.myUser} onChangePlace={this.updateUserPlace} onChangeStatus={this.updateUserStatus} />
+                </PrivateRoute>
+                <Route exact path="/login">
+                  <Login toggleValidUser={this.toggleValidUser} />
+                </Route>
+                <Route exact path="/register">
+                  <Register />
+                </Route>
+                <Route exact path="/forgot-password">
+                  <ForgotPassword />
+                </Route>
+                <PrivateRoute exact path="/logout">
+                  <Logout toggleValidUser={this.toggleValidUser} />
+                </PrivateRoute>
+                <Route path="/">
+                  <About />
+                </Route>
+                <Route path="*">
+                  <NotFound />
+                </Route>
+              </Switch>
+            </main>
+          </div>
+        </Router>
       </div >
     )
   }

@@ -10,8 +10,7 @@ class Login extends Component {
         return (
             <section className="Login">
                 <h2>Log in</h2>
-                <Form method="POST" action="/api/users/login" inputs={formValues} />
-
+                <Form method="POST" action="/api/users/login" inputs={formValues} toggleValidUser={this.props.toggleValidUser} />
                 <div>
                     <p>
                         New user? <Link to="/register">Register here</Link>
