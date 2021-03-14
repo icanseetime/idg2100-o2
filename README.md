@@ -94,9 +94,11 @@ I set up a backend because I wanted to see if I could connect Express and React.
 
 ### Notes
 
--   The database schema used by mongoose can be found [here](./backend/models/User.js)
+-   The database schema used by mongoose can be found [here](./backend/models/User.js). The API sets values for location and availability to _home-office_ and _busy_ to all users with _Teacher_ role, so the user database could be used by the existing functionalities in the app.
+-   The main functionality of the API can be found in the [users route](./backend/routes/user.js) and the [routes file](./backend/routes/routes.js) which it connects to.
 -   I had mongoose connected to a mongoDB database, but since I don't want to send the file with my password, I've provided a .env file which connects it to your localhost. The database will therefore be empty until you register any users.
--   All passwords are encrypted using bcrypt
+-   All passwords are encrypted using bcrypt.
+-   The "forgot password" doesn't really do anything other than display a message to the user that they will be sent an e-mail.
 
 ---
 
@@ -107,6 +109,7 @@ If I had more time, I would've liked to
 -   Set proptypes on all the components
 -   Learn JWT and set up proper user authentication. Looked into it, but didn't have time
 -   Connect the user system which displays status of teachers to the backend database
+-   Add checks to see if user is unique before adding to database (unique e-mail)
 -   Find a way to start both servers at once, I couldn't get 'concurrently' to work
 -   Clean up the CSS. I had to focus on functionality, but I'm aware there are a lot of unnecessary duplicates in the css files etc.
 -   Put more thought into separation of concerns, stateless vs. stateful, controlled vs. uncontrolled etc. I've tried to separate as best I could while coding, but with the limited time we got on this oblig, I didn't feel like I had time to plan out anything properly.
