@@ -10,7 +10,7 @@ class Register extends Component {
         return (
             <div className="Register">
                 <h2>Register new user</h2>
-                <Form method="POST" action="http://localhost:5000/api/users/new" inputs={formValues} />
+                <Form method="POST" action="/api/users/new" inputs={formValues} />
                 <div>
                     <p>
                         Already have an account? <Link to="/login">Log in</Link>

@@ -38,7 +38,6 @@ Home.defaultProps = {
     status: 'available',
     onChangePlace: () => { console.log('<Home> onChangePlace') },
     onChangeStatus: () => { console.log('<Home> onChangeStatus') }
-
 };
 
 export default Home;

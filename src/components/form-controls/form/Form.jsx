@@ -137,6 +137,9 @@ class Form extends Component {
         } else if (this.props.method === 'POST') {
             axios.post(this.props.action, this.state.formValues)
                 .then(res => {
+                    if (res.data.localStorage) {
+                        localStorage.setItem(res.data.localStorage, true)
+                    }
                     if (res.data.redirect) {
                         this.setState({
                             redirect: res.data.redirect
