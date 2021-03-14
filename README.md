@@ -1,70 +1,116 @@
-# Getting Started with Create React App
+# Oblig 2
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+_- Ida M. R. Gjeitsund_
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Content
 
-### `yarn start`
+1. [How to run and test project](#how-to-run-and-test-project)
+    - [Run](#run)
+    - [Test](#test)
+2. [Frontend](#frontend)
+    - [Technologies used](#technologies-used)
+    - [Pages](#pages)
+    - [Forms](#forms)
+3. [Backend](#backend)
+    - [Information](#information)
+    - [Packages used](#packages-used)
+    - [Notes](#notes)
+4. [Room for improvement & other notes](#room-for-improvement-&-other-notes)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## How to run and test project
 
-### `yarn test`
+### Run
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Run `yarn install-all` from the root folder to install all packages for front- and backend
+2. Run `yarn start` from root folder
+3. Open a second terminal and run `yarn devstart` from the /backend folder
 
-### `yarn build`
+### Test
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Go to log in from the navigation
+2. Click the link for _Register here_
+3. Register a new user (or as many as you'd like)
+4. Click the link for _Forgot password?_
+5. Type in one of the registered e-mail addresses
+6. Go back to log in and try to log in with one of the registered users
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+\*For all tests, you can also try inputting wrong information, like a e-mail address that doesn't exist or the wrong password, and see what happens.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `yarn eject`
+## Frontend
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Technologies used
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+| Package name | Usage                               |
+| ------------ | ----------------------------------- |
+| React        | Frontend library                    |
+| axios        | For sending requests to the backend |
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Pages
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+I moved all the main pages into a folder that is names /pages next to the /component folder, because it seemed a little more organized when there were so many components.
 
-## Learn More
+All the pages call on the **Form** component, except for Login, which just logs out the user and redirects to landing page.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Forms
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+All the form components are in the [form-controls](./src/components/form-controls) folder.
 
-### Code Splitting
+#### Main Form component
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+I wanted to make a component that could work for all three forms. It might not be the best way to do this, but the form takes in an object which contains the information about all the subcomponents that should be in the form ([register example](./src/pages/register/formValues.json)). It also takes in a method for posting the form (POST/GET) and an endpoint for the API.
 
-### Analyzing the Bundle Size
+#### Subcomponents
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+| Name              | Information                                                                             |
+| ----------------- | --------------------------------------------------------------------------------------- |
+| FormInput         | Takes in type, pattern for validation, name and a title for the label                   |
+| Select            | Takes in a list of options, name and a title for the label                              |
+| MatchingPasswords | Generates two form-inputs with type password and validates if they match                |
+| SubmitButton      | Is always rendered by a form, takes in prop that controls disabled status of the button |
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Backend
 
-### Advanced Configuration
+### Information
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+I set up a backend because I wanted to see if I could connect Express and React. The backend works fine with all the forms, but is not connected to the Dashboard or anything else in the app, because I didn't have the time.
 
-### Deployment
+### Packages used
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+| Package name | Usage                           |
+| ------------ | ------------------------------- |
+| express      | To set up API                   |
+| mongoose     | For storing data                |
+| bcrypt       | For securing passwords          |
+| dotenv       | To set environment variables    |
+| nodemon      | For automatic restart of server |
 
-### `yarn build` fails to minify
+### Notes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+-   The database schema used by mongoose can be found [here](./backend/models/User.js)
+-   I had mongoose connected to a mongoDB database, but since I don't want to send the file with my password, I've provided a .env file which connects it to your localhost. The database will therefore be empty until you register any users.
+-   All passwords are encrypted using bcrypt
+
+---
+
+## Room for improvement & other notes
+
+If I had more time, I would've liked to
+
+-   Set proptypes on all the components
+-   Learn JWT and set up proper user authentication. Looked into it, but didn't have time
+-   Connect the user system which displays status of teachers to the backend database
+-   Find a way to start both servers at once, I couldn't get 'concurrently' to work
+-   Clean up the CSS. I had to focus on functionality, but I'm aware there are a lot of unnecessary duplicates in the css files etc.
+-   Put more thought into separation of concerns, stateless vs. stateful, controlled vs. uncontrolled etc. I've tried to separate as best I could while coding, but with the limited time we got on this oblig, I didn't feel like I had time to plan out anything properly.
+
+---
+
+[Back to top](#oblig-2)
