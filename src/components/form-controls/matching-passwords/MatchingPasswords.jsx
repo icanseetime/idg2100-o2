@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import FormInput from '../form-input/form-input'
+import FormInput from '../form-input/FormInput'
 import './MatchingPasswords.css'
 
 class MatchingPasswords extends Component {

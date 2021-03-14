@@ -13,17 +13,16 @@ import About from './pages/about/About'
 import Home from './pages/home/Home'
 import Login from './pages/login/Login'
 import Logout from './pages/logout/Logout'
-import Register from './pages/register/Register.jsx'
+import Register from './pages/register/Register'
 import ForgotPassword from './pages/forgot-password/ForgotPassword'
 import NotFound from './pages/NotFound'
 import UserList from './pages/user-list/user-list'
 
 // Components
-import Header from './components/header/header'
+import Header from './components/header/Header'
 
 // Routes
 import PrivateRoute from './routes/PrivateRoute'
-
 
 class App extends Component {
   constructor(props) {
@@ -33,7 +32,6 @@ class App extends Component {
       users: [...USERS],
       validUser: false,
     }
-
     this.toggleValidUser = this.toggleValidUser.bind(this)
   }
 

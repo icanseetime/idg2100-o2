@@ -3,9 +3,9 @@ import './Form.css'
 import axios from 'axios'
 
 // Components
-import FormInput from '../form-input/form-input'
-import SubmitButton from '../submit-button/submit-button'
-import Select from '../select/select'
+import FormInput from '../form-input/FormInput'
+import SubmitButton from '../submit-button/SubmitButton'
+import Select from '../select/Select'
 import MatchingPasswords from '../matching-passwords/MatchingPasswords'
 
 // Regexp patterns
