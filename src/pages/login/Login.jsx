@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom'
 import './Login.css'
 
 import Form from '../../components/form-controls/form/Form'
 import formValues from './formValues.json'
 
 class Login extends Component {
-
     render() {
         return (
-            <div className="Login">
+            <section className="Login">
                 <h2>Log in</h2>
                 <Form method="POST" action="/api/users/login" inputs={formValues} />
 
@@ -21,7 +20,7 @@ class Login extends Component {
                         <Link to="/forgot-password">Forgot password?</Link>
                     </p>
                 </div>
-            </div>
+            </section>
         )
     }
 }
