@@ -9,6 +9,9 @@ router.get('/', (req, res) => {
     res.send('USERS :)') // TODO: remove test
 })
 
+// Get list of all teachers
+router.get('/teachers', routes.getTeachers)
+
 // "Get new password"
 router.get('/reset-password', routes.findUser)
 
@@ -18,5 +21,7 @@ router.post('/new', routes.createUser)
 
 // Log in user
 router.post('/login', routes.validateUser)
+
+
 
 module.exports = router
