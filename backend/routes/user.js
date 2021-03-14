@@ -4,11 +4,6 @@ const router = express.Router()
 const routes = require('./routes')
 
 // GET
-// Find users
-router.get('/', (req, res) => {
-    res.send('USERS :)') // TODO: remove test
-})
-
 // Get list of all teachers
 router.get('/teachers', routes.getTeachers)
 

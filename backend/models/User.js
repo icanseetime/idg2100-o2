@@ -25,12 +25,12 @@ const userSchema = new mongoose.Schema({
     place: {
         type: String,
         enum: ['on-campus', 'home-office'],
-        required: true
+        required: false
     },
     availability: {
         type: String,
         enum: ['available', 'busy'],
-        required: true
+        required: false
     }
 })
 
