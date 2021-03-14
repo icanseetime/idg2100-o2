@@ -17,7 +17,9 @@ const createUser = async (req, res) => {
         lastName: req.body.lastName,
         email: req.body.email,
         password: req.body.matchingPasswords,
-        role: req.body.role
+        role: req.body.role,
+        place: 'home-office',
+        availability: 'busy'
     })
 
     try {

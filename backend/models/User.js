@@ -21,6 +21,16 @@ const userSchema = new mongoose.Schema({
         type: String,
         enum: ['Student', 'Teacher'],
         required: true,
+    },
+    place: {
+        type: String,
+        enum: ['on-campus', 'home-office'],
+        required: true
+    },
+    availability: {
+        type: String,
+        enum: ['available', 'busy'],
+        required: true
     }
 })
 
