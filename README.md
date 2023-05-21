@@ -1,7 +1,5 @@
 # Oblig 2
 
-_- Ida M. R. Gjeitsund_
-
 ---
 
 ## Content
